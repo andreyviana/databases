@@ -67,11 +67,8 @@ VALUES
   (1, 'Saturno', 'Gasoso', 'Conhecido por seus impressionantes anéis.', 1427000000),
   (1, 'Urano', 'Gasoso', 'Gigante gasoso inclinado em seu eixo.', 2871000000),
   (1, 'Netuno', 'Gasoso', 'Planeta azul com ventos muito fortes.', 4504000000),
-  (2, 'Proxima c', 'Rochoso', 'Executa uma órbita mais longa de cinco anos em torno da estrela', 700000);
-
-INSERT INTO planeta (id_estrela, nome_planeta, tipo_planeta, descricao_planeta)
-VALUES (2, 'Proxima b', 'Rochoso', 'Planeta com uma massa comparável à da Terra');
- 
+  (2, 'Proxima c', 'Rochoso', 'Executa uma órbita mais longa de cinco anos em torno da estrela', 700000),
+  (2, 'Proxima b', 'Rochoso', 'Planeta com uma massa comparável à da Terra', NULL);
 
 INSERT INTO lua (id_planeta, nome_lua, descricao_lua)
 VALUES 
@@ -99,10 +96,21 @@ VALUES
   (7, 'Umbriel', 'Lua de Urano com uma superfície escura e poucas características de impacto visíveis.'),
   (7, 'Ariel', 'Lua de Urano com uma superfície brilhante e algumas fissuras.');
 
-SELECT * FROM galaxia;
+SELECT * 
+FROM galaxia;
 
-SELECT * FROM estrela;
+SELECT galaxia.nome_galaxia, estrela.*
+FROM estrela
+LEFT JOIN galaxia
+ON estrela.id_galaxia = galaxia.id_galaxia;
 
-SELECT * FROM planeta;
+SELECT estrela.nome_estrela, planeta.*
+FROM planeta
+LEFT JOIN estrela
+ON planeta.id_estrela = estrela.id_estrela; 
 
-SELECT * FROM lua;
+
+SELECT planeta.nome_planeta, lua.*
+FROM lua
+LEFT JOIN planeta
+ON lua.id_planeta = planeta.id_planeta;
