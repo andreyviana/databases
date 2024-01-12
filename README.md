@@ -2,3 +2,4 @@
 - MySQL
 - PostgreSQL <br>
 ## Os arquivos usando PostgreSQL são gerados automaticamente após finalizar os projetos do freecodecamp usando Bash
+- Script shell para interagir com o bando de dados.
