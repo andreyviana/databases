@@ -109,7 +109,6 @@ FROM planeta
 LEFT JOIN estrela
 ON planeta.id_estrela = estrela.id_estrela; 
 
-
 SELECT planeta.nome_planeta, lua.*
 FROM lua
 LEFT JOIN planeta
